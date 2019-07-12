@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    function get_action(form) {
+        form.action = '/edit/'+document.getElementById("newPageTitle").value;
+    }
+</script>
+
+
+<h1>Front Page</h1>
+
+<ul>
+    {{range $element := .Fields}}
+       <li><a href='/view/{{printf "%s" $element.Title}}'>{{printf "%s" $element.Title}}</a></li>
+    {{end}}
+    <h2>New Page Title</h2>
+        <form action="/create/" method="POST">
+            <div><textarea name="title" rows="1" cols="40" ></textarea></div>
+            <div><input type="submit" value="Create"></div>
+            </form>
+</ul>
